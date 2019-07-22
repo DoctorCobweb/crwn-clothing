@@ -38,8 +38,15 @@ const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems
 });
 
-
-// this swapped order also seems to work ?!
+// const mapStateToProps = (state, ownProps) => {
+//   console.log('blah blah');
+//   console.log(ownProps);
+//   return {
+//     cartItems: selectCartItems(state)
+//   };
+// }
+// this swapped order does NOT work. you don't get the history, match and path properties
+// inside of mapStateToProps 
 // export default connect(mapStateToProps, null)(withRouter(CartDropdown))
 
 // DEFAULT dispatch ARGUMENT
