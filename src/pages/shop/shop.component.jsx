@@ -14,42 +14,19 @@ import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/fireb
 
 
 class ShopPage extends React.Component {
-  // needed for the Observer pattern
-  // state = {
-  //   loading: true,
-  // };
-  // unsubscribeFromSnapshot = null;
 
   componentDidMount() {
-    console.log('componentWill mount shop.component method');
+    // console.log('componentWill mount shop.component method');
     const { fetchCollectionsStartAsync } = this.props;
     fetchCollectionsStartAsync();
-
-
-    // using the Observer pattern
-    // const { updateCollections } = this.props;
-    // const collectionRef = firestore.collection('collections');
-    // this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
-    //   const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-
-    //   // console.log('asdf');
-    //   // console.log(snapshot);
-    //   // console.log('collectionsMap');
-    //   // console.log(collectionsMap);
-
-    //   updateCollections(collectionsMap);
-    //   this.setState({loading: false});
-    // });
   }
 
   componentWillUnmount() {
-     // for the Observer pattern
-    // this.unsubscribeFromSnapshot();
   }
 
   render () {
     const { match } = this.props;
-    console.log('render shop.component method');
+    // console.log('render shop.component method');
 
     return (
       <div className='shop-page'>
@@ -70,7 +47,6 @@ class ShopPage extends React.Component {
 
 
 const mapDispatchToProps = dispatch => ({
-  // updateCollections: collectionsMap => dispatch(updateCollections(collectionsMap)),
   fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync()),
 });
 
