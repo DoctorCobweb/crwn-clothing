@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import SweetAlert from 'sweetalert2-react';
@@ -17,7 +17,8 @@ import {
   SignUpTitle 
 } from './sign-up.styles.jsx';
 
-const SignUp = ({ signUpStart }) => {
+const SignUp = (props) => {
+  const { signUpStart } = props
   const [ userCredentials, setUserCredentials ] = useState({
     displayName: '',
     email: '',
@@ -28,13 +29,15 @@ const SignUp = ({ signUpStart }) => {
 
   const { displayName, email, password, confirmPassword, error } = userCredentials;
 
-  // const componentWillReceiveProps = (nextProps, nextContext) => {
-  //   console.log()
-  //   const { userError } = nextProps;
-  //   if (userError) {
-  //     this.setState({ error: userError.message });
-  //   }
-  // }
+
+  // here is how useEffect can be made to work like componentWillReceiveProps lifecycle method.
+  // but here we're specifically only listening for the userError prop which get sets
+  // when theres an error during signup process
+  useEffect(() => {
+    if (props.userError) {
+      setUserCredentials({ ...userCredentials, error: props.userError.message });
+    }
+  }, [props.userError]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -88,68 +91,22 @@ const SignUp = ({ signUpStart }) => {
           required
         />
         <CustomButton type="submit">SIGN UP</CustomButton>
+        {
+          error ? (
+            <SweetAlert
+              show={error}
+              type="warning"
+              title="Error"
+              text={error}
+              onConfirm={() => setUserCredentials({ ...userCredentials, error: ''})}
+            />
+          ) : (
+            null
+          )
+        }
       </form>
     </SignUpContainer>
   );
-
-  // THIS REURN HAS THE SWEETALERT POPUP THAT WAS WORKING FOR WHEN THIS COMPONENT WAS CLASS-BASED.
-  // => i dont yet know how to handle the componentWillReceiveProps for a functional component yet.
-  //    leaving this here for now, until i understand hooks better to implement this behaviour using hooks
-  //
-  // return (
-  //   <SignUpContainer>
-  //     <SignUpTitle>I do not have an account</SignUpTitle>
-  //     <span>Sign up with your email and password</span>
-  //     <form className="sign-up-form" onSubmit={handleSubmit}>
-  //       <FormInput
-  //         type="text"
-  //         name="displayName"
-  //         value={displayName}
-  //         onChange={handleChange}
-  //         label='Display Name'
-  //         required
-  //       />
-  //       <FormInput
-  //         type="email"
-  //         name="email"
-  //         value={email}
-  //         onChange={handleChange}
-  //         label="Email"
-  //         required
-  //       />
-  //       <FormInput
-  //         type="password"
-  //         name="password"
-  //         value={password}
-  //         onChange={handleChange}
-  //         label="Password"
-  //         required
-  //       />
-  //       <FormInput
-  //         type="password"
-  //         name="confirmPassword"
-  //         value={confirmPassword}
-  //         onChange={handleChange}
-  //         label="Confirm Password"
-  //         required
-  //       />
-  //       <CustomButton type="submit">SIGN UP</CustomButton>
-  //       {
-  //         error ? (
-  //           <SweetAlert
-  //             show={error}
-  //             type="warning"
-  //             title="Error"
-  //             text={error}
-  //             onConfirm={() => setUserCredentials({ ...userCredentials, error: ''})}
-  //           />
-  //         ) : (
-  //           null
-  //         )
-  //       }
-  //     </form>
-  //   </SignUpContainer>
-  // );
 }
 
 const mapStateToProps = createStructuredSelector({
