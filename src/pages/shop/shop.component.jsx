@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -11,33 +11,57 @@ import {
 
 
 
-class ShopPage extends React.Component {
-  componentDidMount() {
-    const { fetchCollectionsStart } = this.props;
+const ShopPage = ({ match, fetchCollectionsStart }) => {
+  
+  // IMPORTANT CAVEAT: how to make useEffect act like componentDidMount class life-cycle method
+  //
+  // usually to mimick onComponentDidMount we pass an [] into useEffect.
+  // it means useEffect will only be called once.
+  //
+  // but doing so will cause react to warn about needing to pass in something
+  // to useEffect. also, if we do just use [] then useEffect will be triggered
+  // everytime 
+  // i) ShopPage rerenders
+  // ii) props to ShopPage change
+  // iii) if ShopPage had state via useState and state changed
+  // iv) if ShopPage's parent rerenders
+  //
+  // when the app loads and we're on shop page we call fetchCollectionsStart() in useEffect
+  // then our app checks for user login. if user is then it sets
+  // currentUser in redux to be the user.
+  //
+  // since app component has currentUser as a prop, the change in currentUser causes app
+  // component to re-render, which will cause ShopPage to re-render, which
+  // causes the useEffect hook to fire again, which calls fetchCollectionsStart.
+  // (try setting useEffect to have [] as second param, reload app and watch
+  // the collections in shop page 'flicker' ie. load and then wipe screen to white, then load again)
+  //
+  // the following is a little hacky but circumvents this flickering behaviour:
+  // put the action method in [], as below.
+  //
+  // so useEffect will fire on ShopPage component load, but only list for changes in
+  // fetchCollectionsStart. but fetchCollectionsStart is a method which doesn't
+  // change! so if parent App component rerenders due to signing a user in,
+  // the useEffect hook wont re-fire..in.because it's only 'listening' to changes in
+  // the value of the fetchCollectionsStart action, which by its very nature of just
+  // being a 'hard coded' function, won't change.k
+  useEffect(() => {
     fetchCollectionsStart();
-  }
+  }, [fetchCollectionsStart])
 
-  componentWillUnmount() {
-  }
-
-  render () {
-    const { match } = this.props;
-
-    return (
-      <div className='shop-page'>
-        <Route
-          exact
-          path={`${match.path}`}
-          component={CollectionsOverviewContainer}
-        />
-
-        <Route
-          path={`${match.path}/:collectionId`}
-          component={CollectionPageContainer}
-        />
-      </div>
-    );
-  }
+  return (
+    <div className='shop-page'>
+      <Route
+        exact
+        path={`${match.path}`}
+        component={CollectionsOverviewContainer}
+      />
+      <Route
+        path={`${match.path}/:collectionId`}
+        component={CollectionPageContainer}
+      />
+    </div>
+  );
 }
 
 const mapDispatchToProps = dispatch => ({
