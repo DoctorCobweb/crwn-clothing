@@ -66,7 +66,7 @@ app.post('/payment', (req, res) => {
       console.log(stripErr)
       res.status(500).send({ error: stripeErr });
     } else {
-      console('STRIPE SUCCES')
+      console.log('STRIPE SUCCESS')
       res.status(200).send({ success: stripeResponse });
     }
   });
