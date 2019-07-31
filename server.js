@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const compression = require('compression');
+const enforce = require('express-sslify');
 
 if (process.env.NODE_ENV !== 'production') {
   // during dev/test our secret keys are accessed via this
@@ -32,6 +33,19 @@ app.use(bodyParser.json());
 // are properly parsed. ie no spaces in url string
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+// ENFORCE HTTPS
+// heroku, nodejitsu and other hosters often use 
+// reverse proxies which offer SSL endpoints but then
+// forward unencrypted HTTP traffic to the website.
+//
+// this makes it difficult to detect if the original request
+// was indeed via HTTPS.
+//
+// luckily, most reverse proxies set the x-forwarded-proto header flag
+// with the original request scheme (HTTP or HTTPS).
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
+
 // allow different origins
 // eg hosting a server on google. if another website makes
 // a request from a different origin, say amazon, then
@@ -51,6 +65,12 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
+
+app.get('/service-worker.js', (req, res) => {
+  // we are inside our client index.js file, when asking for the service-worker.js
+  // service-worker comes with our create-react-app 
+  res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'));
+});
 
 app.listen(port, error => {
   if (error) throw error;
