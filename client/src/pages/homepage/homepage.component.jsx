@@ -7,7 +7,7 @@ import { HomePageContainer } from './homepage.styles';
 
 const HomePage = () => {
   // throw new Error('quafadf');
-  throw 'asdf';
+  // throw 'asdf';
 
   return (
   <HomePageContainer>
