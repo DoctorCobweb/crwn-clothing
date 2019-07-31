@@ -6,7 +6,8 @@ import Directory from '../../components/directory/directory.component';
 import { HomePageContainer } from './homepage.styles';
 
 const HomePage = () => {
-  // throw Error;
+  throw new Error('quafadf');
+  // throw 'asdf';
 
   return (
   <HomePageContainer>

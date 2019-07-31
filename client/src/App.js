@@ -30,8 +30,8 @@ const App = ({ checkUserSession, currentUser }) => {
     <div>
       <GlobalStyle />
       <Header />
-      <Switch>
         <ErrorBoundary>
+      <Switch>
           <Suspense fallback={<Spinner />}>
             <Route exact path='/' component={HomePage}/>
           <Route path='/shop' component={ShopPage}/>
@@ -48,8 +48,8 @@ const App = ({ checkUserSession, currentUser }) => {
             }
           />
           </Suspense>
-        </ErrorBoundary>
       </Switch>
+        </ErrorBoundary>
     </div>
   );
 }

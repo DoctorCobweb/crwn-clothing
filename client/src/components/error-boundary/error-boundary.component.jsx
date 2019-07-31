@@ -13,6 +13,7 @@ class ErrorBoundary extends React.Component {
 
   static getDerivedStateFromError(error) {
     // prcess the error and set the state by returning the state
+    console.log('getDerivedStateFromError called')
     return { hasErrored: true };
   }
 
@@ -29,6 +30,7 @@ class ErrorBoundary extends React.Component {
         </ErrorImageOverlay>
       );
     } else {
+      console.log('hasdfh props.children')
       return this.props.children;
     }
   }
