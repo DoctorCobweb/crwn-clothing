@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
+const compression = require('compression');
 
 if (process.env.NODE_ENV !== 'production') {
   // during dev/test our secret keys are accessed via this
@@ -20,6 +21,9 @@ const app = express();
 // heroku will put the port number at PORT env variable, 
 // otherwise hardcode the value to be 5000
 const port = process.env.PORT || 5000;
+
+// enable gzip compression for gzipping on heroku
+app.use(compression());
 
 // process any requests body parts into JSON
 app.use(bodyParser.json());
