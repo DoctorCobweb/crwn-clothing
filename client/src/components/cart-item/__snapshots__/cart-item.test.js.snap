@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartItem component tests CartItem component should match snapshot 1`] = `
+"<CartItemContainer>
+  <CartItemImage src=\\"https://example.com/image\\" alt=\\"item\\" />
+  <ItemDetailsContainer>
+    <NameContainer>
+      shorts
+    </NameContainer>
+    <PriceContainer>
+      $
+      2
+       x 
+      11
+    </PriceContainer>
+  </ItemDetailsContainer>
+</CartItemContainer>"
+`;

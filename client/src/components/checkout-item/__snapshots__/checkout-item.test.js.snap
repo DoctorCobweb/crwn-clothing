@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckoutItem component tests CheckoutItem should match snapshot 1`] = `
+"<CheckoutItemContainer>
+  <ImageContainer>
+    <img src=\\"https://example.com/image1\\" alt=\\"item\\" />
+  </ImageContainer>
+  <TextContainer>
+    shorts
+  </TextContainer>
+  <QuantityContainer>
+    <div onClick={[Function: onClick]}>
+      ❮
+    </div>
+    <span>
+      2
+    </span>
+    <div onClick={[Function: onClick]}>
+      ❯
+    </div>
+  </QuantityContainer>
+  <TextContainer>
+    11
+  </TextContainer>
+  <RemoveButtonContainer onClick={[Function: onClick]}>
+    ✕
+  </RemoveButtonContainer>
+</CheckoutItemContainer>"
+`;

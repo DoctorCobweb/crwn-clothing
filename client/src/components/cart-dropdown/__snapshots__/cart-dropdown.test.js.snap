@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartDropdown component tests CartDropdown should match snapshot 1`] = `
+"<CartDropdownContainer>
+  <CartItemsContainer>
+    <Memo(CartItem) item={{...}} />
+    <Memo(CartItem) item={{...}} />
+    <Memo(CartItem) item={{...}} />
+  </CartItemsContainer>
+  <CartDropdownButton onClick={[Function: onClick]}>
+    GO TO CHECKOUT
+  </CartDropdownButton>
+</CartDropdownContainer>"
+`;

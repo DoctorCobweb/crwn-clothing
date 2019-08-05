@@ -21,6 +21,7 @@ export const GroupContainer = styled.div`
     letter-spacing: 0.3em;
   }
 `;
+GroupContainer.displayName = 'GroupContainer';
 
 export const FormInputContainer = styled.input`
   background: none;
@@ -43,6 +44,7 @@ export const FormInputContainer = styled.input`
     ${shrinkLabel}
   }
 `;
+FormInputContainer.displayName = 'FormInputContainer';
 
 export const  FormInputLabel= styled.label`
   ${subColor}
@@ -56,3 +58,4 @@ export const  FormInputLabel= styled.label`
 
   {({ textLength }) => textLength ? shrinkLabel : null}
 `;
+FormInputLabel.displayName = 'FormInputLabel';

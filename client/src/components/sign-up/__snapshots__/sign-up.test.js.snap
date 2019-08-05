@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUp component should render SignUp correctly 1`] = `
+"<SignUpContainer>
+  <SignUpTitle>
+    I do not have an account
+  </SignUpTitle>
+  <span>
+    Sign up with your email and password
+  </span>
+  <form className=\\"sign-up-form\\" onSubmit={[Function: handleSubmit]}>
+    <FormInput type=\\"text\\" name=\\"displayName\\" value=\\"\\" onChange={[Function: handleChange]} label=\\"Display Name\\" required={true} />
+    <FormInput type=\\"email\\" name=\\"email\\" value=\\"\\" onChange={[Function: handleChange]} label=\\"Email\\" required={true} />
+    <FormInput type=\\"password\\" name=\\"password\\" value=\\"\\" onChange={[Function: handleChange]} label=\\"Password\\" required={true} />
+    <FormInput type=\\"password\\" name=\\"confirmPassword\\" value=\\"\\" onChange={[Function: handleChange]} label=\\"Confirm Password\\" required={true} />
+    <CustomButton type=\\"submit\\">
+      SIGN UP
+    </CustomButton>
+  </form>
+</SignUpContainer>"
+`;

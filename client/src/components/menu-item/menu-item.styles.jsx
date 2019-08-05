@@ -12,7 +12,6 @@ export const MenuItemContainer = styled.div`
   margin: 0 7.5px 15px;
   overflow: hidden;
 
-
   &:hover {
     cursor: pointer;
 
@@ -40,6 +39,7 @@ export const MenuItemContainer = styled.div`
   }
 
 `;
+MenuItemContainer.displayName = 'MenuItemContainer';
 
 export const BackgroundImageContainer = styled.div`
   height: 100%;
@@ -48,6 +48,7 @@ export const BackgroundImageContainer = styled.div`
   background-size: cover;
   background-image: ${props => `url(${props.imageUrl})`};
 `;
+BackgroundImageContainer.displayName = 'BackgroundImageContainer';
 
 export const ContentContainer = styled.div`
   height: 90px;
@@ -61,6 +62,7 @@ export const ContentContainer = styled.div`
   opacity: 0.7;
   position: absolute
 `;
+ContentContainer.displayName = 'ContentContainer';
 
 export const ContentTitle = styled.h1`
   font-weight: bold;
@@ -68,8 +70,10 @@ export const ContentTitle = styled.h1`
   font-size: 22px;
   color: #4a4a4a
 `;
+ContentTitle.displayName = 'ContentTitle';
 
 export const ContentSubtitle = styled.span`
   font-weight: lighter;
   font-size: 16px
 `;
+ContentSubtitle.displayName = 'ContentSubtitle';

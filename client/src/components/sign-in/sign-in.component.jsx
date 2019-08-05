@@ -16,7 +16,7 @@ import {
 } from './sign-in.styles.jsx';
 
 
-const SignIn = ({ emailSignInStart, googleSignInStart }) => {
+export const SignIn = ({ emailSignInStart, googleSignInStart }) => {
   const [userCredentials, setCredentials ] = useState({
     email: '',
     password: ''

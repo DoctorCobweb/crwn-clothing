@@ -16,9 +16,8 @@ import { signOutStart } from '../../redux/user/user.actions';
 // nb. this is a CRA special syntax
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink } from './header.styles';
-// import './header.styles.scss';
 
-const Header = ({ currentUser, hidden, signOutStart}) => (
+export const Header = ({ currentUser, hidden, signOutStart}) => (
   <HeaderContainer>
     <LogoContainer to="/">
       <Logo className="logo" />

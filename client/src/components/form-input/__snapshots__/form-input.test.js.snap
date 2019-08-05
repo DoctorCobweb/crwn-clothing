@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormInput component should render FormInput 1`] = `
+"<GroupContainer>
+  <FormInputContainer onChange={[Function: mockConstructor]} value=\\"test@gmail.com\\" />
+  <FormInputLabel textLength={14}>
+    email
+  </FormInputLabel>
+</GroupContainer>"
+`;

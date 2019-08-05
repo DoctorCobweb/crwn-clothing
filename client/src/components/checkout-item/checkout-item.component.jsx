@@ -17,7 +17,7 @@ import {
 } from './checkout-item.styles.jsx';
 
 
-const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
+export const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
   
   return (

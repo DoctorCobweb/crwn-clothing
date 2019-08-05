@@ -8,6 +8,7 @@ export const ErrorImageOverlay = styled.div`
   justify-content: center;
   align-items: center;
 `;
+ErrorImageOverlay.displayName = 'ErrorImageOverlay';
 
 export const ErrorImageContainer = styled.div`
   display: inline-block;
@@ -17,8 +18,10 @@ export const ErrorImageContainer = styled.div`
   width: 40vh;
   height: 40vh;
 `;
+ErrorImageContainer.displayName = 'ErrorImageContainer';
 
 export const ErrorImageText = styled.h2`
   font-size: 28px;
   color: #2f8e89;
 `;
+ErrorImageText.displayName = 'ErrorImageText';

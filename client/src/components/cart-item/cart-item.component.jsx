@@ -8,7 +8,7 @@ import {
   PriceContainer 
 } from './cart-item.styles.jsx';
 
-const CartItem = ({ item: { imageUrl, price, name, quantity } }) => (
+export const CartItem = ({ item: { imageUrl, price, name, quantity } }) => (
   <CartItemContainer>
     <CartItemImage src={imageUrl} alt="item" />
     <ItemDetailsContainer>

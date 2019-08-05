@@ -17,7 +17,7 @@ import {
   SignUpTitle 
 } from './sign-up.styles.jsx';
 
-const SignUp = (props) => {
+export const SignUp = (props) => {
   const { signUpStart } = props
   const [ userCredentials, setUserCredentials ] = useState({
     displayName: '',

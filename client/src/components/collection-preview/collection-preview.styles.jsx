@@ -8,14 +8,15 @@ export const CollectionPreviewContainer = styled.div`
   @media screen and (max-width: 800px) {
     align-items: center;
   }
-
 `;
+CollectionPreviewContainer.displayName = 'CollectionPreviewContainer';
 
 export const TitleContainer = styled.h1`
   font-size: 28px;
   margin-bottom: 25px
   cursor: pointer;
 `;
+TitleContainer.displayName = 'TitleContainer';
 
 export const PreviewContainer = styled.div`
   display: flex;
@@ -27,3 +28,4 @@ export const PreviewContainer = styled.div`
     grid-gap: 15px;
   }
 `;
+PreviewContainer.displayName = 'PreviewContainer';

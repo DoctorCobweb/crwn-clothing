@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CollectionsOverview component should render CollectionsOverviewContainer componnet 1`] = `
+"<CollectionsOverviewContainer>
+  <withRouter(CollectionPreview) />
+  <withRouter(CollectionPreview) />
+  <withRouter(CollectionPreview) />
+</CollectionsOverviewContainer>"
+`;

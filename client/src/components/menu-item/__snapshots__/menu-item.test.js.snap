@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuItem component should render component 1`] = `
+"<MenuItemContainer size=\\"mockSize\\" onClick={[Function: onClick]}>
+  <BackgroundImageContainer className=\\"background-image\\" imageUrl=\\"https://example.com/image1\\" />
+  <ContentContainer className=\\"content\\">
+    <ContentTitle>
+      MOCKTITLE
+    </ContentTitle>
+    <ContentSubtitle>
+      SHOP NOW
+    </ContentSubtitle>
+  </ContentContainer>
+</MenuItemContainer>"
+`;

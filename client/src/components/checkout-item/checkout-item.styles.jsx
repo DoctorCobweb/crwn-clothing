@@ -13,6 +13,7 @@ export const CheckoutItemContainer = styled.div`
     font-size: 17px;
   }
 `;
+CheckoutItemContainer.displayName = 'CheckoutItemContainer';
 
 export const ImageContainer = styled.div`
   width: 23%;
@@ -23,6 +24,7 @@ export const ImageContainer = styled.div`
     height: 100%;
   }
 `;
+ImageContainer.displayName = 'ImageContainer';
 
 export const TextContainer = styled.span`
   width: 23%;
@@ -31,6 +33,7 @@ export const TextContainer = styled.span`
     width: 22%;
   }
 `;
+TextContainer.displayName = 'TextContainer';
 
 export const QuantityContainer = styled(TextContainer)`
   display: flex;
@@ -48,8 +51,10 @@ export const QuantityContainer = styled(TextContainer)`
     margin-left: 5px;
   }
 `;
+QuantityContainer.displayName = 'QuantityContainer';
 
 export const RemoveButtonContainer = styled.div`
   padding-left: 12px;
   cursor: pointer
 `;
+RemoveButtonContainer.displayName = 'RemoveButtonContainer';

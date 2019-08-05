@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CollectionPreview componnet testing component should snapshot should match 1`] = `
+"<CollectionPreviewContainer>
+  <TitleContainer onClick={[Function: onClick]}>
+    BLAH
+  </TitleContainer>
+  <PreviewContainer>
+    <Connect(CollectionItem) item={{...}} />
+    <Connect(CollectionItem) item={{...}} />
+    <Connect(CollectionItem) item={{...}} />
+    <Connect(CollectionItem) item={{...}} />
+  </PreviewContainer>
+</CollectionPreviewContainer>"
+`;

@@ -9,7 +9,9 @@ export const SignUpContainer = styled.div`
     width: 90vw;
   }
 `;
+SignUpContainer.displayName = 'SignUpContainer';
 
 export const SignUpTitle = styled.h2`
   margin: 10px 0
 `;
+SignUpTitle.displayName = 'SignUpTitle';

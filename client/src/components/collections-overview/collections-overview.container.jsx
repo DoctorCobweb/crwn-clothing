@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-// import { createStucturedSelector } from 'reselect';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
