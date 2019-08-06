@@ -2,21 +2,17 @@ import React, { useEffect, lazy, Suspense } from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-// import CollectionsOverviewContainer from '../../components/collections-overview/collections-overview.container';
-// import CollectionPageContainer from '../collection/collection.container';
-
 import Spinner from '../../components/spinner/spinner.component';
 
-import {
-  fetchCollectionsStart,
-} from '../../redux/shop/shop.actions';
+import { fetchCollectionsStart } from '../../redux/shop/shop.actions';
+
+import { ShopPageContainer } from './shop.styles';
 
 const CollectionsOverviewContainer = lazy(() => import('../../components/collections-overview/collections-overview.container'));
 const CollectionPageContainer = lazy(() => import('../collection/collection.container'));
 
 
-const ShopPage = ({ match, fetchCollectionsStart }) => {
-  
+export const ShopPage = ({ match, fetchCollectionsStart }) => {
   // IMPORTANT CAVEAT: how to make useEffect act like componentDidMount class life-cycle method
   //
   // usually to mimick onComponentDidMount we pass an [] into useEffect.
@@ -54,7 +50,7 @@ const ShopPage = ({ match, fetchCollectionsStart }) => {
   }, [fetchCollectionsStart])
 
   return (
-    <div className='shop-page'>
+    <ShopPageContainer>
       <Suspense fallback={<Spinner />}>
         <Route
           exact
@@ -66,8 +62,7 @@ const ShopPage = ({ match, fetchCollectionsStart }) => {
           component={CollectionPageContainer}
         />
       </Suspense>
-
-    </div>
+    </ShopPageContainer>
   );
 }
 

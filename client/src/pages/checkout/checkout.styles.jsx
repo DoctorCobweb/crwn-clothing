@@ -18,6 +18,7 @@ export const CheckoutPageContainer = styled.div`
     margin: 20px;
   }
 `;
+CheckoutPageContainer.displayName = 'CheckoutPageContainer';
 
 export const CheckoutHeaderContainer = styled.div`
   width: 100%;
@@ -27,6 +28,7 @@ export const CheckoutHeaderContainer = styled.div`
   border-bottom: 1px solid darkgrey;
 
 `;
+CheckoutHeaderContainer.displayName = 'CheckoutHeaderContainer';
 
 export const HeaderBlockContainer = styled.div`
   text-transform: capitalize;
@@ -44,12 +46,14 @@ export const HeaderBlockContainer = styled.div`
     }
   }
 `;
+HeaderBlockContainer.displayName = 'HeaderBlockContainer';
 
 export const TotalContainer = styled.div`
   margin-top: 30px;
   margin-left: auto;
   font-size: 36px;
 `;
+TotalContainer.displayName = 'TotalContainer';
 
 export const WarningContainer = styled.div`
   text-align: center;
@@ -57,3 +61,4 @@ export const WarningContainer = styled.div`
   font-size: 24px;
   color: red
 `;
+WarningContainer.displayName = 'WarningContainer';

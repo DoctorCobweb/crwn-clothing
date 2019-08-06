@@ -3,11 +3,6 @@ import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/fireb
 
 import ShopActionTypes from './shop.types';
 
-// export const updateCollections = (collectionsMap) => ({
-//   type: ShopActionTypes.UPDATE_COLLECTIONS,
-//   payload: collectionsMap
-// });
-
 export const fetchCollectionsStart = () => ({
   type: ShopActionTypes.FETCH_COLLECTIONS_START,
 });
@@ -22,6 +17,11 @@ export const fetchCollectionsFailure = errorMessage => ({
   payload: errorMessage,
 });
 
+
+// thunk: action creator that returns a function that gets the dispatch
+//
+// NOTE: i don't think this is used anymore since we've switched over to sagas
+// to handle async actions
 export const fetchCollectionsStartAsync = () => {
   return (dispatch) => {
     const collectionRef = firestore.collection('collections');
@@ -40,4 +40,3 @@ export const fetchCollectionsStartAsync = () => {
   };
 };
 
-//thunl: action creator that returns a function that gets the dispatch

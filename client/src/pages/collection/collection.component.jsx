@@ -12,7 +12,7 @@ import {
   CollectionItemsContainer 
 } from './collection.styles.jsx';
 
-const CollectionPage = ({ collection }) => {
+export const CollectionPage = ({ collection }) => {
 
   // HERES HOW YOU HANDLE CLEANUP USING useEffect hook
   // => just a demo of functionality here. not needed for the app.

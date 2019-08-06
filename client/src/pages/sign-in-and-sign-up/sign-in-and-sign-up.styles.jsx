@@ -21,3 +21,4 @@ export const SignInAndSignUpContainer = styled.div`
     }
   }
 `;
+SignInAndSignUpContainer.displayName = 'SignInAndSignUpContainer';
