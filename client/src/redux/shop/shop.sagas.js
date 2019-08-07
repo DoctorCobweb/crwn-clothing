@@ -5,7 +5,6 @@ import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/fireb
 import {
   fetchCollectionsSuccess,
   fetchCollectionsFailure,
-
 } from './shop.actions';
 
 import ShopActionTypes from './shop.types';

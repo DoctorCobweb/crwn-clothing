@@ -24,6 +24,9 @@ export function* getSnapshotFromUserAuth(userAuth, additionalData) {
   try {
     const userRef = yield call(createUserProfileDocument, userAuth, additionalData);
     const userSnapshot = yield userRef.get();
+    console.log('getSnapshotFromUserAuth, user id and user data is:');
+    console.log(userSnapshot.id);
+    console.log(userSnapshot.data());
     yield put(signInSuccess({ id:userSnapshot.id, ...userSnapshot.data() }))
   } catch (error) {
     yield put(signInFailure(error));
@@ -39,16 +42,24 @@ export function* signUp({ payload: { displayName, email, password }}) {
     // const { user } = yield call(auth.createUserWithEmailAndPassword, ...blah);
     //
     const { user } = yield auth.createUserWithEmailAndPassword(email, password);
-    console.log(user)
+    console.log('signUp saga, user is: ');
+    console.log(user);
     yield put(signUpSuccess({ user, additionalData: { displayName} }));
     // const userRef = yield createUserProfileDocument(user, { displayName });
-    yield getSnapshotFromUserAuth(user);
+
+    // DRE: commented this out because it gets called already by the onSignUpSuccess saga
+    // which is listening to the SIGN_UP_SUCCESS action type that's sent by the yield statement
+    // above.
+    // yield getSnapshotFromUserAuth(user);
+
+
   } catch (error) {
     yield put(signUpFailure(error));
   }
 }
 
 export function* signInAfterSignUp({ payload: { user, additionalData }}) {
+  console.log(' got called signInAfterSignUp');
   yield getSnapshotFromUserAuth(user, additionalData);
 }
 
@@ -95,7 +106,6 @@ export function* isUserAuthenticated() {
 export function* onGoogleSignInStart() {
   yield takeLatest(UserActionTypes.GOOGLE_SIGN_IN_START, signInWithGoogle)
 }
-
 
 export function* onEmailSignInStart() {
   yield takeLatest(UserActionTypes.EMAIL_SIGN_IN_START, signInWithEmail)
