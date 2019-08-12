@@ -55,7 +55,7 @@ app.use(enforce.HTTPS({ trustProtoHeader: true }));
 //
 // cors also applies to making requests from localhost client
 // to localhost server which will be on different *ports*.
-app.use(cors());
+// app.use(cors());
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
