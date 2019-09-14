@@ -44,7 +44,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //
 // luckily, most reverse proxies set the x-forwarded-proto header flag
 // with the original request scheme (HTTP or HTTPS).
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
+} 
 
 // allow different origins
 // eg hosting a server on google. if another website makes
@@ -78,6 +81,7 @@ app.listen(port, error => {
 });
 
 app.post('/payment', (req, res) => {
+  console.log('hello from /payment');
   const body = {
     source: req.body.token.id,
     amount: req.body.amount,
